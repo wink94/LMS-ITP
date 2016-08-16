@@ -14,7 +14,7 @@ namespace LabManagement.Controllers
         private int patientID;
         private int patientAge;
         private string patientName;
-        private char patientGender;
+        private string patientGender;
         private string patientEmail;
         private string patientTelephone;
         private BindingList<getTestList> testList = new BindingList<getTestList>();
@@ -23,12 +23,12 @@ namespace LabManagement.Controllers
         public int ID { get { return patientID; } }
         public int Age { get { return patientAge; } }
         public string Name { get { return patientName; } }
-        public char Gender { get { return patientGender; } }
+        public string Gender { get { return patientGender; } }
         public string Email { get { return patientEmail; } }
         public string Phone { get { return patientTelephone; } }
         public BindingList<getTestList> tests { get { return testList; } }
 
-        public void setDetails(string PatientName, char PatientGender, string PatientEmail, string PatientTelephone,int PatientAge)
+        public void setDetails(string PatientName, string PatientGender, string PatientEmail, string PatientTelephone,int PatientAge)
         {
             patientName = PatientName;
             patientGender = PatientGender;
