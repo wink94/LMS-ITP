@@ -20,5 +20,8 @@ namespace LabManagement.DBAccess
                 
            
         }
+        /*insert patient details to DB*/
+
+
     }
 }
