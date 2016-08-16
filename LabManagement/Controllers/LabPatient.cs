@@ -25,7 +25,7 @@ namespace LabManagement.Controllers
         public string Name { get { return patientName; } }
         public char Gender { get { return patientGender; } }
         public string Email { get { return patientEmail; } }
-        public string Tele { get { return patientTelephone; } }
+        public string Phone { get { return patientTelephone; } }
         public BindingList<getTestList> tests { get { return testList; } }
 
         public void setDetails(string PatientName, char PatientGender, string PatientEmail, string PatientTelephone,int PatientAge)
