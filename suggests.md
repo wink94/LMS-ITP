@@ -1,0 +1,3 @@
+# LMS-ITP
+
+1) in pattient regiter form.....Add name to textbox while converting to uppercase(diplay uppercase)...
