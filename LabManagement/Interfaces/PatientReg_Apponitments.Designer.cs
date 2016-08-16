@@ -275,7 +275,7 @@
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Location = new System.Drawing.Point(518, 169);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(180, 28);
+            this.cmbGender.Size = new System.Drawing.Size(107, 28);
             this.cmbGender.TabIndex = 2;
             // 
             // txtPPhone

@@ -15,6 +15,7 @@ namespace LabManagement
     public partial class Form2 : Form
     {
         private DBRetrieve dbr = new DBRetrieve();
+        private DBInsert dbi = new DBInsert(); 
        
         private LabPatient labPatient=new LabPatient();
 
@@ -27,6 +28,7 @@ namespace LabManagement
         private void Form2_Load(object sender, EventArgs e)
         {
             FillTestSearch();
+            FillGendercmbBox();
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
@@ -34,8 +36,8 @@ namespace LabManagement
             Validation validation=new Validation();
             if (validation.alphaVal(txtPName.Text) & validation.IsNumeric(txtPAge.Text) & validation.numberVal(txtPPhone.Text) & validation.emailVal(txtPEmail.Text))
             {
-                
-                labPatient.setDetails(txtPName.Text, Convert.ToChar(cmbGender.SelectedValue), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text));
+                labPatient.setDetails(txtPName.Text, cmbGender.SelectedValue.ToString(), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text));
+                dbi.insertLabPatient(labPatient);
             }
             else
                 validation.printError(true);
@@ -135,6 +137,12 @@ namespace LabManagement
             }
         }
 
+        private void FillGendercmbBox()
+        {
+            string[] gender = { "Male","Female"};
+
+            cmbGender.DataSource = gender;
+        }
 
     }
 }

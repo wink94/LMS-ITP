@@ -18,7 +18,7 @@ namespace LabManagement.Controllers
 
         public bool alphaVal(string val)
         {
-            string pattern = @"^[A-Za-z\s]+$";
+            string pattern = @"^[A-Za-z.\s]+$";
             Match m = Regex.Match(val, pattern);
             string errormsg_alphaVal;
 
