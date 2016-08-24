@@ -12,7 +12,7 @@ namespace LabManagement.Controllers
     class Validation
     {
         private Dictionary<string,string> errmsg = new Dictionary<string, string> {
-            {"alphaVal","" },{"numberVal","" },{"emailVal","" },{"IsNumeric","" },{"alphaNumericVal","" } };
+            {"alphaVal","" },{"numberVal","" },{"emailVal","" },{"IsNumeric","" },{"alphaNumericVal","" }, {"TestListEmpty","" }, {"checkFieldIsSet","" } };
 
         /* letters only!! validation*/
 
@@ -117,7 +117,40 @@ namespace LabManagement.Controllers
                 return true;
             }
         }
+        /* patient test list check */
+        public bool checkTestListEmpty(LabPatient lp)
+        {
+            string errormsg_checkTestListEmpty;
+            if (!lp.checkTestListEmpty())
+            {
+                errormsg_checkTestListEmpty = "Test List cannot be empty.!" + "\n";
+                errmsg["TestListEmpty"] = errormsg_checkTestListEmpty;
+                return false;
+            }
+            else
+            {
+                errormsg_checkTestListEmpty = "";
+                errmsg["TestListEmpty"] = errormsg_checkTestListEmpty;
+                return true;
+            }
+        }
 
+        public bool checkFieldIsSet(string value,string field)
+        {
+            string checkFieldIsSet;
+            if (value=="" ||value==null)
+            {
+                checkFieldIsSet = field+" field cannot be empty.!" + "\n";
+                errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                return false;
+            }
+            else
+            {
+                checkFieldIsSet = "";
+                errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                return true;
+            }
+        }
 
         public void printError(bool val)
         {

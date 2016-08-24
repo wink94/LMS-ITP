@@ -11,7 +11,7 @@ namespace LabManagement.Controllers
 {
     class LabPatient
     {
-        private int patientID;
+        private string patientID;
         private int patientAge;
         private string patientName;
         private string patientGender;
@@ -20,7 +20,7 @@ namespace LabManagement.Controllers
         private BindingList<getTestList> testList = new BindingList<getTestList>();
         private DBRetrieve dbr = new DBRetrieve();
 
-        public int ID { get { return patientID; } }
+        public string ID { get { return patientID; } }
         public int Age { get { return patientAge; } }
         public string Name { get { return patientName; } }
         public string Gender { get { return patientGender; } }
@@ -88,6 +88,21 @@ namespace LabManagement.Controllers
         {
             return testList.Count > 0;
         }
+
+        public void emptyTestList()
+        {
+            for(int i = 0; i < testList.Count; i++)
+            {
+                testList.RemoveAt(i);
+            }
+        }
+
+        public bool setPatientID()
+        {
+            patientID = dbr.getRegisteredPatientID();
+            return (patientID == null || patientID == "") ? false : true;
+        }
+
 
     }
 }

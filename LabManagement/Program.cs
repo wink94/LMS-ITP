@@ -17,7 +17,7 @@ namespace LabManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageTest());
+            Application.Run(new Form2());
         }
     }
 }

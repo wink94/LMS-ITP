@@ -118,6 +118,102 @@ namespace LabManagement.DBAccess
 
             return ds;
         }
+        /*get lasst patient's id*/
+        public string getRegisteredPatientID()
+        {
+            string query= "SELECT max(labPatientID) FROM lms.lab_patient";
+            string id="";
+            try
+            {
+                conn.Open();
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                id = newCmd.ExecuteScalar().ToString();
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return null;
+            }
+
+            conn.Close();
+            return id;
+        }
+
+        /* get  appointment count on date */
+        public int getAppointmentCount(string date)
+        {
+            string query = "SELECT count(labAppointmentID) FROM lab_appointment where labAppointmentDate='" + date+"'";
+            int count=-1 ;
+            try
+            {
+                conn.Open();
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                
+                count = Convert.ToInt32(newCmd.ExecuteScalar());
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return -1;
+            }
+
+            conn.Close();
+            return count;
+        }
+
+        /*get appointment limit*/
+
+        public int getAppointmentLimit()
+        {
+            string query = "SELECT appointment_limit,max(ID) FROM lab_appointment_limit";
+            int count = -1;
+            try
+            {
+                conn.Open();
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+
+                count = Convert.ToInt32(newCmd.ExecuteScalar());
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return -1;
+            }
+
+            conn.Close();
+            return count;
+        }
+
+        /* populate datagridview with appointment details*/
+
+        public DataSet getAppointmentDetails()
+        {
+            if (conn.State.ToString() == "Closed")
+            {
+                conn.Open();
+            }
+
+            string query = "SELECT la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate FROM lab_patient lp, lab_appointment la WHERE lp.labPatientID = la.labPatientID ";
+            MySqlCommand newCmd = new MySqlCommand(query, conn);
+
+            DataSet ds = new DataSet();
+            try
+            {
+                MySqlDataAdapter da = new MySqlDataAdapter(newCmd);
+                da.Fill(ds, "lab_appointments");
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error " + e.Message);
+            }
+            conn.Close();
+
+            return ds;
+        }
 
 
     }

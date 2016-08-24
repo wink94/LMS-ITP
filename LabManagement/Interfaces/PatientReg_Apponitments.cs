@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LabManagement.Controllers;
 using LabManagement.DBAccess;
+using LabManagement.Interfaces;
 
 namespace LabManagement
 {
     public partial class Form2 : Form
     {
         private DBRetrieve dbr = new DBRetrieve();
-        private DBInsert dbi = new DBInsert(); 
-       
-        private LabPatient labPatient=new LabPatient();
+        private LabPatient labPatient = new LabPatient();
+        private LabAppointment labappmnt = new LabAppointment();
 
 
         public Form2()
@@ -29,20 +23,49 @@ namespace LabManagement
         {
             FillTestSearch();
             FillGendercmbBox();
+            displayTodayAppointmentcount(DateTime.Now);
+            gBxSelectApmnt.Hide();
+            //MessageBox.Show(dbr.getAppointmentLimit.ToString());
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
+                   
             Validation validation=new Validation();
-            if (validation.alphaVal(txtPName.Text) & validation.IsNumeric(txtPAge.Text) & validation.numberVal(txtPPhone.Text) & validation.emailVal(txtPEmail.Text))
+            if (validation.alphaVal(txtPName.Text) & validation.IsNumeric(txtPAge.Text) & validation.numberVal(txtPPhone.Text) & validation.emailVal(txtPEmail.Text) & validation.checkTestListEmpty(labPatient) &validation.checkFieldIsSet(labappmnt.Adate,"Lab Appointment"))
             {
                 labPatient.setDetails(txtPName.Text, cmbGender.SelectedValue.ToString(), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text));
-                dbi.insertLabPatient(labPatient);
+               
+                LabPatientBill lpb = new LabPatientBill(labPatient,labappmnt);
+                lpb.ShowDialog();
+                //this.Dispose();
+
+                if (lpb.appoinmentStatus)
+                {
+                    lpb.Dispose();
+                    emptyFields();
+                    labPatient.emptyTestList();
+                    
+                    tabCtrlPReg_App.SelectedIndex = 1;
+
+                }
+                else
+                    lpb.Dispose();
+                
             }
             else
                 validation.printError(true);
         }
 
+        private void emptyFields()
+        {
+            txtPAge.Text = "";
+            txtPEmail.Text = "";
+            txtPName.Text = "";
+            txtPPhone.Text = "";
+            txtPSearchTest.Text = "";
+            cmbGender.SelectedIndex = 0;
+        }
 
 
         /*  fill test list and  */
@@ -88,7 +111,6 @@ namespace LabManagement
 
        
 
-       
 
         /*  add tests to patient list */
 
@@ -139,10 +161,58 @@ namespace LabManagement
 
         private void FillGendercmbBox()
         {
-            string[] gender = { "Male","Female"};
+            string[] gender = { "","Male","Female"};
 
             cmbGender.DataSource = gender;
         }
 
+        private void displayTodayAppointmentcount(DateTime dt)
+        {
+            string today = dt.ToString("yyyy-MM-dd");
+            lblAppNum.Text = dbr.getAppointmentCount(today).ToString();
+        }
+
+        private void tabCtrlPReg_App_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabCtrlPReg_App.SelectedIndex == 0)
+            {
+                displayTodayAppointmentcount(DateTime.Now);
+                gBxSelectApmnt.Hide();
+            }
+        }
+
+        private void btnSetAppmnt_Click(object sender, EventArgs e)
+        {
+            if (gBxSelectApmnt.Visible == false)
+                gBxSelectApmnt.Show();
+            else
+                gBxSelectApmnt.Hide();
+        }
+
+        private void btnSetAppLimit_Click(object sender, EventArgs e)
+        {
+            /*
+             set appointment limit 
+             admin right require
+             
+             */
+        }
+
+        private void btnSetAppmntToday_Click(object sender, EventArgs e)
+        {
+            string date= DateTime.Now.ToString("yyyy-MM-dd");
+
+            if (labappmnt.isAppointmentAllowed(date))
+                labappmnt.Adate=date;
+
+        }
+
+        private void dateAppDate_ValueChanged(object sender, EventArgs e)
+        {
+            string date = dateAppDate.Value.ToString("yyyy-MM-dd");
+
+            if (labappmnt.isAppointmentAllowed(date))
+                labappmnt.Adate = date;
+        }
     }
 }

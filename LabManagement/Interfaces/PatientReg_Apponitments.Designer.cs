@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabCtrlPReg_App = new System.Windows.Forms.TabControl();
             this.tabPRegister = new System.Windows.Forms.TabPage();
+            this.btnSetAppLimit = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSetAppointmenToday = new System.Windows.Forms.Button();
+            this.btnSetAppmnt = new System.Windows.Forms.Button();
+            this.gBxSelectApmnt = new System.Windows.Forms.GroupBox();
+            this.dateAppDate = new System.Windows.Forms.DateTimePicker();
             this.lblAppNum = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateAppDate = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pboxAdd = new System.Windows.Forms.PictureBox();
@@ -56,6 +62,8 @@
             this.txtPName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -70,32 +78,38 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabControl1.SuspendLayout();
+            this.tabCtrlPReg_App.SuspendLayout();
             this.tabPRegister.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gBxSelectApmnt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxRemove)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabCtrlPReg_App
             // 
-            this.tabControl1.Controls.Add(this.tabPRegister);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1200, 700);
-            this.tabControl1.TabIndex = 0;
+            this.tabCtrlPReg_App.Controls.Add(this.tabPRegister);
+            this.tabCtrlPReg_App.Controls.Add(this.tabPage2);
+            this.tabCtrlPReg_App.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCtrlPReg_App.Location = new System.Drawing.Point(12, 2);
+            this.tabCtrlPReg_App.Name = "tabCtrlPReg_App";
+            this.tabCtrlPReg_App.SelectedIndex = 0;
+            this.tabCtrlPReg_App.Size = new System.Drawing.Size(1170, 700);
+            this.tabCtrlPReg_App.TabIndex = 0;
+            this.tabCtrlPReg_App.SelectedIndexChanged += new System.EventHandler(this.tabCtrlPReg_App_SelectedIndexChanged);
             // 
             // tabPRegister
             // 
             this.tabPRegister.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.tabPRegister.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPRegister.Controls.Add(this.btnSetAppLimit);
+            this.tabPRegister.Controls.Add(this.groupBox3);
             this.tabPRegister.Controls.Add(this.groupBox1);
             this.tabPRegister.Controls.Add(this.button2);
             this.tabPRegister.Controls.Add(this.pictureBox3);
@@ -119,24 +133,107 @@
             this.tabPRegister.Location = new System.Drawing.Point(4, 29);
             this.tabPRegister.Name = "tabPRegister";
             this.tabPRegister.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPRegister.Size = new System.Drawing.Size(1192, 667);
+            this.tabPRegister.Size = new System.Drawing.Size(1162, 667);
             this.tabPRegister.TabIndex = 0;
             this.tabPRegister.Text = "Patient Registraion";
+            // 
+            // btnSetAppLimit
+            // 
+            this.btnSetAppLimit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetAppLimit.Location = new System.Drawing.Point(867, 438);
+            this.btnSetAppLimit.Name = "btnSetAppLimit";
+            this.btnSetAppLimit.Size = new System.Drawing.Size(109, 36);
+            this.btnSetAppLimit.TabIndex = 21;
+            this.btnSetAppLimit.Text = "SetAppLimit";
+            this.btnSetAppLimit.UseVisualStyleBackColor = true;
+            this.btnSetAppLimit.Click += new System.EventHandler(this.btnSetAppLimit_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Location = new System.Drawing.Point(867, 480);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(202, 137);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(9, 78);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 27);
+            this.textBox1.TabIndex = 16;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(187, 16);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Set Daily Apponitment Limit";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.btnSetAppointmenToday);
+            this.groupBox1.Controls.Add(this.btnSetAppmnt);
+            this.groupBox1.Controls.Add(this.gBxSelectApmnt);
             this.groupBox1.Controls.Add(this.lblAppNum);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.dateAppDate);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(823, 98);
+            this.groupBox1.Location = new System.Drawing.Point(784, 98);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 287);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.Size = new System.Drawing.Size(351, 251);
+            this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Appointment";
+            // 
+            // btnSetAppointmenToday
+            // 
+            this.btnSetAppointmenToday.Location = new System.Drawing.Point(263, 98);
+            this.btnSetAppointmenToday.Name = "btnSetAppointmenToday";
+            this.btnSetAppointmenToday.Size = new System.Drawing.Size(82, 56);
+            this.btnSetAppointmenToday.TabIndex = 19;
+            this.btnSetAppointmenToday.Text = "Today";
+            this.btnSetAppointmenToday.UseVisualStyleBackColor = true;
+            this.btnSetAppointmenToday.Click += new System.EventHandler(this.btnSetAppmntToday_Click);
+            // 
+            // btnSetAppmnt
+            // 
+            this.btnSetAppmnt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetAppmnt.Location = new System.Drawing.Point(6, 98);
+            this.btnSetAppmnt.Name = "btnSetAppmnt";
+            this.btnSetAppmnt.Size = new System.Drawing.Size(104, 36);
+            this.btnSetAppmnt.TabIndex = 19;
+            this.btnSetAppmnt.Text = "Select Date";
+            this.btnSetAppmnt.UseVisualStyleBackColor = true;
+            this.btnSetAppmnt.Click += new System.EventHandler(this.btnSetAppmnt_Click);
+            // 
+            // gBxSelectApmnt
+            // 
+            this.gBxSelectApmnt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gBxSelectApmnt.Controls.Add(this.dateAppDate);
+            this.gBxSelectApmnt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBxSelectApmnt.Location = new System.Drawing.Point(6, 140);
+            this.gBxSelectApmnt.Name = "gBxSelectApmnt";
+            this.gBxSelectApmnt.Size = new System.Drawing.Size(227, 78);
+            this.gBxSelectApmnt.TabIndex = 14;
+            this.gBxSelectApmnt.TabStop = false;
+            this.gBxSelectApmnt.Text = "Schedule Apponitment";
+            // 
+            // dateAppDate
+            // 
+            this.dateAppDate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateAppDate.Location = new System.Drawing.Point(6, 39);
+            this.dateAppDate.Name = "dateAppDate";
+            this.dateAppDate.Size = new System.Drawing.Size(200, 22);
+            this.dateAppDate.TabIndex = 16;
+            this.dateAppDate.ValueChanged += new System.EventHandler(this.dateAppDate_ValueChanged);
             // 
             // lblAppNum
             // 
@@ -157,24 +254,6 @@
             this.label8.Size = new System.Drawing.Size(172, 18);
             this.label8.TabIndex = 17;
             this.label8.Text = "Appointments Number";
-            // 
-            // dateAppDate
-            // 
-            this.dateAppDate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateAppDate.Location = new System.Drawing.Point(47, 209);
-            this.dateAppDate.Name = "dateAppDate";
-            this.dateAppDate.Size = new System.Drawing.Size(200, 22);
-            this.dateAppDate.TabIndex = 16;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(43, 154);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 19);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Schedule Apponitment";
             // 
             // button2
             // 
@@ -272,6 +351,7 @@
             // 
             // cmbGender
             // 
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Location = new System.Drawing.Point(518, 169);
             this.cmbGender.Name = "cmbGender";
@@ -359,83 +439,104 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gray;
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.dateTimePicker3);
-            this.tabPage2.Controls.Add(this.dateTimePicker2);
-            this.tabPage2.Controls.Add(this.pictureBox4);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1192, 667);
+            this.tabPage2.Size = new System.Drawing.Size(1162, 667);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Manage Appointments";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::LabManagement.Properties.Resources.back2;
+            this.button1.Location = new System.Drawing.Point(1097, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 50);
+            this.button1.TabIndex = 14;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.dateTimePicker3);
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.pictureBox4);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(441, 69);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(715, 509);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Aqua;
-            this.label11.Location = new System.Drawing.Point(770, 35);
+            this.label11.Location = new System.Drawing.Point(342, 139);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 20);
-            this.label11.TabIndex = 7;
+            this.label11.TabIndex = 15;
             this.label11.Text = "From";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Aqua;
-            this.label9.Location = new System.Drawing.Point(458, 34);
+            this.label9.Location = new System.Drawing.Point(57, 139);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 20);
-            this.label9.TabIndex = 6;
+            this.label9.TabIndex = 14;
             this.label9.Text = "To";
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(850, 32);
+            this.dateTimePicker3.Location = new System.Drawing.Point(413, 137);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker3.TabIndex = 5;
+            this.dateTimePicker3.TabIndex = 13;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(548, 32);
+            this.dateTimePicker2.Location = new System.Drawing.Point(112, 137);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 4;
+            this.dateTimePicker2.TabIndex = 12;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(390, 32);
+            this.pictureBox4.Location = new System.Drawing.Point(642, 137);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabIndex = 11;
             this.pictureBox4.TabStop = false;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(267, 32);
+            this.textBox6.Location = new System.Drawing.Point(273, 53);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 27);
-            this.textBox6.TabIndex = 2;
+            this.textBox6.TabIndex = 10;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(37, 30);
+            this.label10.Location = new System.Drawing.Point(52, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(175, 19);
-            this.label10.TabIndex = 1;
+            this.label10.TabIndex = 9;
             this.label10.Text = "Search Appointments";
             // 
             // dataGridView1
@@ -448,35 +549,31 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(205, 154);
+            this.dataGridView1.Location = new System.Drawing.Point(56, 248);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 208);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(606, 208);
+            this.dataGridView1.TabIndex = 8;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Patient ID";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Patient Name";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Date";
             this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
             // 
             // Column5
             // 
@@ -495,21 +592,25 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabCtrlPReg_App);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabCtrlPReg_App.ResumeLayout(false);
             this.tabPRegister.ResumeLayout(false);
             this.tabPRegister.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gBxSelectApmnt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxRemove)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -518,7 +619,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabCtrlPReg_App;
         private System.Windows.Forms.TabPage tabPRegister;
         private System.Windows.Forms.PictureBox pboxAdd;
         private System.Windows.Forms.PictureBox pboxRemove;
@@ -539,25 +640,33 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblAppNum;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateAppDate;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSetAppmnt;
+        private System.Windows.Forms.GroupBox gBxSelectApmnt;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSetAppLimit;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnSetAppointmenToday;
     }
 }

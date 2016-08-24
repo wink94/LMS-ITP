@@ -39,6 +39,52 @@ namespace LabManagement.DBAccess
             }
             conn.Close();
         }
+        /*insert lab appointmetn details to DB*/
+        public void insertLabAppointment(LabAppointment la)
+        {
+            string query;
+
+            try
+            {
+                conn.Open();
+                
+                query = "insert into lab_appointment(labAppointmentDate,labPatientID) values('" + la.Adate+ "','" + Convert.ToInt32(la.PID)+"' )";
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
+
+        public void insertTestListData(string pid, List<getTestList> lst)
+        {
+            try
+            {
+                conn.Open();
+               
+                string query = "";
+                foreach (getTestList gtl in lst)
+                {
+                    query += "insert into lab_test_result(labPatientID,labTestID) values (" + Convert.ToInt32(pid) + ",'" + gtl.id + "');";
+                }
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
 
     }
 }
