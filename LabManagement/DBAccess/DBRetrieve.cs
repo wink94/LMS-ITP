@@ -196,7 +196,7 @@ namespace LabManagement.DBAccess
                 conn.Open();
             }
 
-            string query = "SELECT la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate FROM lab_patient lp, lab_appointment la WHERE lp.labPatientID = la.labPatientID ";
+            string query = "SELECT la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,DATE_FORMAT(la.labAppointmentDate, '%Y-%m-%d') as labAppointmentDate FROM lab_patient lp, lab_appointment la WHERE lp.labPatientID = la.labPatientID ";
             MySqlCommand newCmd = new MySqlCommand(query, conn);
 
             DataSet ds = new DataSet();
@@ -214,6 +214,77 @@ namespace LabManagement.DBAccess
 
             return ds;
         }
+
+
+        /* get lab  appointment by lab apponiment id search key word*/
+        public DataSet getSearcehdLabAppointment(string labappmnt = null)
+        {
+            string query;
+            int appmntID = Convert.ToInt32(labappmnt);
+            LabTest labtest = new LabTest();
+
+            if (conn.State.ToString() == "Closed")
+            {
+                conn.Open();
+            }
+
+            
+            query = "SELECT la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate FROM lab_patient lp, lab_appointment la WHERE lp.labPatientID = la.labPatientID AND la.labAppointmentID  like '%" + appmntID + "%'";
+            
+
+            MySqlCommand newCmd = new MySqlCommand(query, conn);
+
+            DataSet ds = new DataSet();
+            try
+            {
+                MySqlDataAdapter da = new MySqlDataAdapter(newCmd);
+                da.Fill(ds, "lab_appointments");
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error " + e.Message);
+            }
+            conn.Close();
+
+            return ds;
+        }
+
+        /* get lab  appointment by lab apponiment date search */
+        public DataSet getSearcehdLabAppointmentFromDate(DateTime fromDate,DateTime toDate )
+        {
+            string query,Date1,Date2;
+            Date1=fromDate.ToString("yyyy-MM-dd");
+            Date2=toDate.ToString("yyyy-MM-dd");
+            
+
+            if (conn.State.ToString() == "Closed")
+            {
+                conn.Open();
+            }
+
+
+            query = "SELECT la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate FROM lab_patient lp, lab_appointment la WHERE lp.labPatientID = la.labPatientID AND la.labAppointmentDate >='"+Date1+ "' AND la.labAppointmentDate <='"+Date2+"'";
+
+
+            MySqlCommand newCmd = new MySqlCommand(query, conn);
+
+            DataSet ds = new DataSet();
+            try
+            {
+                MySqlDataAdapter da = new MySqlDataAdapter(newCmd);
+                da.Fill(ds, "lab_appointments");
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error " + e.Message);
+            }
+            conn.Close();
+
+            return ds;
+        }
+
 
 
     }

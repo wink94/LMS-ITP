@@ -149,6 +149,7 @@
   <ItemGroup>
     <Content Include="Images\back2.png" />
     <Content Include="Images\blue-left-arrow-icon-20.png" />
+    <None Include="Images\search_35px.png" />
     <None Include="Images\blue-left-hoover.png" />
     <None Include="Images\blue-right-arrow-hoover.png" />
     <Content Include="Images\blue-right-arrow-icon-201.png" />

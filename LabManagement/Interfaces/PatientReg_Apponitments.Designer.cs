@@ -64,20 +64,35 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSearchAppmntByDate = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.dateTo = new System.Windows.Forms.DateTimePicker();
+            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.txtAppointmentSearch = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtLPPhoneUpdate = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtLPAgeUpdate = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtLPNameUpdate = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmbLPGenderUpdate = new System.Windows.Forms.ComboBox();
+            this.txtLPEmailUpdate = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dateLPAppDateUpdate = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnLPUpdate = new System.Windows.Forms.Button();
+            this.btnLPUpdateCancel = new System.Windows.Forms.Button();
+            this.dgvAppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dbvAppointmentDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabCtrlPReg_App.SuspendLayout();
             this.tabPRegister.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -88,8 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pboxRemove)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCtrlPReg_App
@@ -439,6 +454,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gray;
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
@@ -460,28 +476,39 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.groupBox2.Controls.Add(this.btnSearchAppmntByDate);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.dateTimePicker3);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.dgvAppointmentList);
+            this.groupBox2.Controls.Add(this.dateTo);
+            this.groupBox2.Controls.Add(this.dateFrom);
+            this.groupBox2.Controls.Add(this.txtAppointmentSearch);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(441, 69);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(483, 62);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(715, 509);
+            this.groupBox2.Size = new System.Drawing.Size(650, 531);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
+            // 
+            // btnSearchAppmntByDate
+            // 
+            this.btnSearchAppmntByDate.Image = global::LabManagement.Properties.Resources.search_35px;
+            this.btnSearchAppmntByDate.Location = new System.Drawing.Point(598, 118);
+            this.btnSearchAppmntByDate.Name = "btnSearchAppmntByDate";
+            this.btnSearchAppmntByDate.Size = new System.Drawing.Size(36, 36);
+            this.btnSearchAppmntByDate.TabIndex = 16;
+            this.btnSearchAppmntByDate.UseVisualStyleBackColor = true;
+            this.btnSearchAppmntByDate.Click += new System.EventHandler(this.btnSearchAppmntByDate_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Aqua;
-            this.label11.Location = new System.Drawing.Point(342, 139);
+            this.label11.Location = new System.Drawing.Point(7, 136);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 20);
+            this.label11.Size = new System.Drawing.Size(40, 17);
             this.label11.TabIndex = 15;
             this.label11.Text = "From";
             // 
@@ -489,103 +516,258 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Aqua;
-            this.label9.Location = new System.Drawing.Point(57, 139);
+            this.label9.Location = new System.Drawing.Point(327, 137);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(26, 20);
+            this.label9.Size = new System.Drawing.Size(23, 17);
             this.label9.TabIndex = 14;
             this.label9.Text = "To";
             // 
-            // dateTimePicker3
+            // dateTo
             // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(413, 137);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker3.TabIndex = 13;
+            this.dateTo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo.Location = new System.Drawing.Point(367, 132);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Size = new System.Drawing.Size(200, 22);
+            this.dateTo.TabIndex = 13;
             // 
-            // dateTimePicker2
+            // dateFrom
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(112, 137);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 12;
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom.Location = new System.Drawing.Point(66, 132);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(200, 22);
+            this.dateFrom.TabIndex = 12;
             // 
-            // pictureBox4
+            // txtAppointmentSearch
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(642, 137);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(273, 53);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 27);
-            this.textBox6.TabIndex = 10;
+            this.txtAppointmentSearch.Location = new System.Drawing.Point(227, 48);
+            this.txtAppointmentSearch.Name = "txtAppointmentSearch";
+            this.txtAppointmentSearch.Size = new System.Drawing.Size(100, 25);
+            this.txtAppointmentSearch.TabIndex = 10;
+            this.txtAppointmentSearch.TextChanged += new System.EventHandler(this.txtAppointmentSearch_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(52, 56);
+            this.label10.Location = new System.Drawing.Point(6, 51);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(175, 19);
             this.label10.TabIndex = 9;
             this.label10.Text = "Search Appointments";
             // 
-            // dataGridView1
+            // dgvAppointmentList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(56, 248);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(606, 208);
-            this.dataGridView1.TabIndex = 8;
+            this.dgvAppointmentList.AllowUserToDeleteRows = false;
+            this.dgvAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAppointmentID,
+            this.dgvPatientID,
+            this.dgvPatientName,
+            this.dgvAppointmentDate,
+            this.dbvAppointmentDelete});
+            this.dgvAppointmentList.Location = new System.Drawing.Point(25, 243);
+            this.dgvAppointmentList.Name = "dgvAppointmentList";
+            this.dgvAppointmentList.ReadOnly = true;
+            this.dgvAppointmentList.RowHeadersVisible = false;
+            this.dgvAppointmentList.Size = new System.Drawing.Size(500, 208);
+            this.dgvAppointmentList.TabIndex = 8;
+            this.dgvAppointmentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppointmentList_CellClick);
             // 
-            // Column1
+            // dataGridViewImageColumn1
             // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
+            this.dataGridViewImageColumn1.HeaderText = "Delete";
+            this.dataGridViewImageColumn1.Image = global::LabManagement.Properties.Resources.cancel_25px;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 50;
             // 
-            // Column2
+            // groupBox4
             // 
-            this.Column2.HeaderText = "Patient ID";
-            this.Column2.Name = "Column2";
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.groupBox4.Controls.Add(this.btnLPUpdateCancel);
+            this.groupBox4.Controls.Add(this.btnLPUpdate);
+            this.groupBox4.Controls.Add(this.dateLPAppDateUpdate);
+            this.groupBox4.Controls.Add(this.cmbLPGenderUpdate);
+            this.groupBox4.Controls.Add(this.txtLPEmailUpdate);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.txtLPPhoneUpdate);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.txtLPAgeUpdate);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.txtLPNameUpdate);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Location = new System.Drawing.Point(33, 85);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(418, 508);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "groupBox4";
             // 
-            // Column3
+            // txtLPPhoneUpdate
             // 
-            this.Column3.HeaderText = "Patient Name";
-            this.Column3.Name = "Column3";
+            this.txtLPPhoneUpdate.Location = new System.Drawing.Point(153, 166);
+            this.txtLPPhoneUpdate.Name = "txtLPPhoneUpdate";
+            this.txtLPPhoneUpdate.Size = new System.Drawing.Size(180, 27);
+            this.txtLPPhoneUpdate.TabIndex = 5;
             // 
-            // Column4
+            // label7
             // 
-            this.Column4.HeaderText = "Date";
-            this.Column4.Name = "Column4";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(21, 166);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 18);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Phone";
             // 
-            // Column5
+            // txtLPAgeUpdate
             // 
-            this.Column5.HeaderText = "Update";
-            this.Column5.Name = "Column5";
-            this.Column5.Text = "Update";
+            this.txtLPAgeUpdate.Location = new System.Drawing.Point(153, 114);
+            this.txtLPAgeUpdate.Name = "txtLPAgeUpdate";
+            this.txtLPAgeUpdate.Size = new System.Drawing.Size(180, 27);
+            this.txtLPAgeUpdate.TabIndex = 6;
             // 
-            // Column6
+            // label13
             // 
-            this.Column6.HeaderText = "Delete";
-            this.Column6.Name = "Column6";
-            this.Column6.Text = "Delete";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(21, 114);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 18);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Age";
+            // 
+            // txtLPNameUpdate
+            // 
+            this.txtLPNameUpdate.Location = new System.Drawing.Point(153, 59);
+            this.txtLPNameUpdate.Name = "txtLPNameUpdate";
+            this.txtLPNameUpdate.Size = new System.Drawing.Size(180, 27);
+            this.txtLPNameUpdate.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(21, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 18);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Name";
+            // 
+            // cmbLPGenderUpdate
+            // 
+            this.cmbLPGenderUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLPGenderUpdate.FormattingEnabled = true;
+            this.cmbLPGenderUpdate.Location = new System.Drawing.Point(153, 276);
+            this.cmbLPGenderUpdate.Name = "cmbLPGenderUpdate";
+            this.cmbLPGenderUpdate.Size = new System.Drawing.Size(107, 28);
+            this.cmbLPGenderUpdate.TabIndex = 11;
+            // 
+            // txtLPEmailUpdate
+            // 
+            this.txtLPEmailUpdate.Location = new System.Drawing.Point(153, 220);
+            this.txtLPEmailUpdate.Name = "txtLPEmailUpdate";
+            this.txtLPEmailUpdate.Size = new System.Drawing.Size(180, 27);
+            this.txtLPEmailUpdate.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(21, 286);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(65, 18);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Gender";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(21, 224);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 18);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Email";
+            // 
+            // dateLPAppDateUpdate
+            // 
+            this.dateLPAppDateUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLPAppDateUpdate.Location = new System.Drawing.Point(153, 338);
+            this.dateLPAppDateUpdate.Name = "dateLPAppDateUpdate";
+            this.dateLPAppDateUpdate.Size = new System.Drawing.Size(205, 23);
+            this.dateLPAppDateUpdate.TabIndex = 12;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(21, 343);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(43, 18);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Date";
+            // 
+            // btnLPUpdate
+            // 
+            this.btnLPUpdate.Location = new System.Drawing.Point(185, 449);
+            this.btnLPUpdate.Name = "btnLPUpdate";
+            this.btnLPUpdate.Size = new System.Drawing.Size(75, 31);
+            this.btnLPUpdate.TabIndex = 13;
+            this.btnLPUpdate.Text = "Update";
+            this.btnLPUpdate.UseVisualStyleBackColor = true;
+            this.btnLPUpdate.Click += new System.EventHandler(this.btnLPUpdate_Click);
+            // 
+            // btnLPUpdateCancel
+            // 
+            this.btnLPUpdateCancel.Location = new System.Drawing.Point(283, 449);
+            this.btnLPUpdateCancel.Name = "btnLPUpdateCancel";
+            this.btnLPUpdateCancel.Size = new System.Drawing.Size(75, 31);
+            this.btnLPUpdateCancel.TabIndex = 13;
+            this.btnLPUpdateCancel.Text = "Cancel";
+            this.btnLPUpdateCancel.UseVisualStyleBackColor = true;
+            this.btnLPUpdateCancel.Click += new System.EventHandler(this.btnLPUpdateCancel_Click);
+            // 
+            // dgvAppointmentID
+            // 
+            this.dgvAppointmentID.DataPropertyName = "labAppointmentID";
+            this.dgvAppointmentID.HeaderText = "Appointment ID";
+            this.dgvAppointmentID.Name = "dgvAppointmentID";
+            this.dgvAppointmentID.ReadOnly = true;
+            this.dgvAppointmentID.Width = 115;
+            // 
+            // dgvPatientID
+            // 
+            this.dgvPatientID.DataPropertyName = "labPatientID";
+            this.dgvPatientID.HeaderText = "Patient ID";
+            this.dgvPatientID.Name = "dgvPatientID";
+            this.dgvPatientID.ReadOnly = true;
+            // 
+            // dgvPatientName
+            // 
+            this.dgvPatientName.DataPropertyName = "labPatientName";
+            this.dgvPatientName.HeaderText = "Patient Name";
+            this.dgvPatientName.Name = "dgvPatientName";
+            this.dgvPatientName.ReadOnly = true;
+            this.dgvPatientName.Width = 120;
+            // 
+            // dgvAppointmentDate
+            // 
+            this.dgvAppointmentDate.DataPropertyName = "labAppointmentDate";
+            this.dgvAppointmentDate.HeaderText = "Date";
+            this.dgvAppointmentDate.Name = "dgvAppointmentDate";
+            this.dgvAppointmentDate.ReadOnly = true;
+            // 
+            // dbvAppointmentDelete
+            // 
+            this.dbvAppointmentDelete.HeaderText = "Delete";
+            this.dbvAppointmentDelete.Image = global::LabManagement.Properties.Resources.cancel_25px;
+            this.dbvAppointmentDelete.Name = "dbvAppointmentDelete";
+            this.dbvAppointmentDelete.ReadOnly = true;
+            this.dbvAppointmentDelete.Width = 60;
             // 
             // Form2
             // 
@@ -611,8 +793,9 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -648,18 +831,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.DateTimePicker dateTo;
+        private System.Windows.Forms.DateTimePicker dateFrom;
+        private System.Windows.Forms.TextBox txtAppointmentSearch;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column6;
+        private System.Windows.Forms.DataGridView dgvAppointmentList;
         private System.Windows.Forms.Button btnSetAppmnt;
         private System.Windows.Forms.GroupBox gBxSelectApmnt;
         private System.Windows.Forms.Button button1;
@@ -668,5 +844,27 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnSetAppointmenToday;
+        private System.Windows.Forms.Button btnSearchAppmntByDate;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cmbLPGenderUpdate;
+        private System.Windows.Forms.TextBox txtLPEmailUpdate;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtLPPhoneUpdate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtLPAgeUpdate;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtLPNameUpdate;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnLPUpdateCancel;
+        private System.Windows.Forms.Button btnLPUpdate;
+        private System.Windows.Forms.DateTimePicker dateLPAppDateUpdate;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentDate;
+        private System.Windows.Forms.DataGridViewImageColumn dbvAppointmentDelete;
     }
 }

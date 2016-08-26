@@ -152,7 +152,7 @@
             this.dgvTestName,
             this.dgvTestPrice,
             this.dgvDel});
-            this.dgvTests.Location = new System.Drawing.Point(364, 169);
+            this.dgvTests.Location = new System.Drawing.Point(469, 171);
             this.dgvTests.Name = "dgvTests";
             this.dgvTests.ReadOnly = true;
             this.dgvTests.RightToLeft = System.Windows.Forms.RightToLeft.No;

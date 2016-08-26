@@ -42,7 +42,7 @@ namespace LabManagement.Interfaces
         {
             try
             {
-                DataSet ds = dbr.getSearcehdLabTest(txtTestSearch.Text);
+                DataSet ds = dbr.getSearcehdLabTest(test);
                 dgvTests.DataSource = ds.Tables["searchtests"].DefaultView;
             }
             catch(Exception e)
